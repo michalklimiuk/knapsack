@@ -22,9 +22,7 @@ def knapsack(pojemnosc, liczba_elementow, lista_wag, lista_wartosci):
 
     for i in range(liczba_elementow + 1):
         for j in range(pojemnosc + 1):
-            if i == 0 or j == 0:
-                macierz[i][j] = 0
-            elif lista_wag[i - 1] <= j:
+            if lista_wag[i - 1] <= j:
                 macierz[i][j] = max(lista_wartosci[i - 1] + macierz[i - 1][j - lista_wag[i - 1]], macierz[i - 1][j])
             else:
                 macierz[i][j] = macierz[i - 1][j]
